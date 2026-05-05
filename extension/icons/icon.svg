@@ -1,14 +1,40 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
-  <!-- Rounded rectangle background in amber -->
-  <rect x="4" y="4" width="120" height="120" rx="24" ry="24" fill="#c8713a"/>
-  <!-- White "M" letter centered -->
-  <text
-    x="64"
-    y="90"
-    font-family="Georgia, serif"
-    font-size="80"
-    font-weight="bold"
-    fill="white"
-    text-anchor="middle"
-  >M</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <!-- Muted warm-to-cool: terracotta → amber → sage → steel blue → deep indigo -->
+    <linearGradient id="rb" x1="6" y1="0" x2="122" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#B85C45"/>
+      <stop offset="20%"  stop-color="#B85C45"/>
+      <stop offset="20%"  stop-color="#B8923A"/>
+      <stop offset="40%"  stop-color="#B8923A"/>
+      <stop offset="40%"  stop-color="#6E9B7A"/>
+      <stop offset="60%"  stop-color="#6E9B7A"/>
+      <stop offset="60%"  stop-color="#4178A0"/>
+      <stop offset="80%"  stop-color="#4178A0"/>
+      <stop offset="80%"  stop-color="#2C4A82"/>
+      <stop offset="100%" stop-color="#2C4A82"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Browser body -->
+  <rect x="6" y="54" width="116" height="68" rx="9" fill="url(#rb)"/>
+
+  <!-- Active tab (leftmost, tallest) -->
+  <rect x="10" y="24" width="42" height="36" rx="7" fill="url(#rb)"/>
+  <!-- Active tab close × -->
+  <path d="M41.5,31 L46.5,36 M46.5,31 L41.5,36" stroke="white" stroke-width="2.2" stroke-linecap="round" opacity="0.85"/>
+
+  <!-- Middle tab -->
+  <rect x="56" y="34" width="34" height="26" rx="6" fill="url(#rb)"/>
+  <!-- Middle tab close × -->
+  <path d="M80,40.5 L84.5,45 M84.5,40.5 L80,45" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.85"/>
+
+  <!-- Right tab (smallest) -->
+  <rect x="94" y="40" width="26" height="20" rx="5" fill="url(#rb)"/>
+  <!-- Right tab close × -->
+  <path d="M110,45 L114,49 M114,45 L110,49" stroke="white" stroke-width="1.8" stroke-linecap="round" opacity="0.85"/>
+
+  <!-- White content lines in body -->
+  <rect x="16" y="70" width="54" height="7" rx="3.5" fill="white" opacity="0.75"/>
+  <rect x="16" y="86" width="38" height="7" rx="3.5" fill="white" opacity="0.75"/>
+  <rect x="16" y="102" width="48" height="7" rx="3.5" fill="white" opacity="0.75"/>
 </svg>
