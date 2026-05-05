@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Manage Tabs",
+  "version": "1.0.0",
+  "description": "New tab page that organizes your open tabs by domain and Chrome tab groups, with drag-and-drop merging and duplicate detection.",
+  "permissions": ["tabs", "activeTab", "storage", "tabGroups", "identity"],
+  "chrome_url_overrides": { "newtab": "index.html" },
+  "background": { "service_worker": "background.js" },
+  "action": {
+    "default_title": "Tab Out",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
