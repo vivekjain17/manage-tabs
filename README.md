@@ -1,58 +1,60 @@
-# Tab Out
+# Manage Tabs
 
-**Keep tabs on your tabs.**
+**Your browser tabs, organized.**
 
-Tab Out is a Chrome extension that replaces your new tab page with a dashboard of everything you have open. Tabs are grouped by domain, with homepages (Gmail, X, LinkedIn, etc.) pulled into their own group. Close tabs with a satisfying swoosh + confetti.
+Manage Tabs is a Chrome extension that replaces your new tab page with a clean dashboard of everything you have open. View tabs grouped by domain or by Chrome tab group, drag and drop to reorganize, and close duplicates in one click.
 
 No server. No account. No external API calls. Just a Chrome extension.
 
 ---
 
-## Install with a coding agent
-
-Send your coding agent (Claude Code, Codex, etc.) this repo and say **"install this"**:
-
-```
-https://github.com/zarazhangrui/tab-out
-```
-
-The agent will walk you through it. Takes about 1 minute.
-
----
-
 ## Features
 
-- **See all your tabs at a glance** on a clean grid, grouped by domain
-- **Homepages group** pulls Gmail inbox, X home, YouTube, LinkedIn, GitHub homepages into one card
-- **Close tabs with style** with swoosh sound + confetti burst
-- **Duplicate detection** flags when you have the same page open twice, with one-click cleanup
-- **Click any tab to jump to it** across windows, no new tab opened
-- **Save for later** bookmark tabs to a checklist before closing them
-- **Localhost grouping** shows port numbers next to each tab so you can tell your vibe coding projects apart
-- **Expandable groups** show the first 8 tabs with a clickable "+N more"
-- **100% local** your data never leaves your machine
-- **Pure Chrome extension** no server, no Node.js, no npm, no setup beyond loading the extension
+### Views
+- **Domain view** — tabs grouped by website, homepages (Gmail, X, LinkedIn, YouTube, GitHub) pulled into their own card at the top
+- **Tab Groups view** — tabs organized by your Chrome tab groups, with ungrouped tabs shown as domain sub-cards below
+- **Smart default** — automatically opens in Tab Groups view when you have named Chrome groups set up
+
+### Organization
+- **Drag and drop** — drag a group header or individual tab chip onto another group to merge them
+- **Localhost grouping** — shows port numbers so you can tell your local projects apart
+- **Expandable cards** — first 8 tabs shown, click "+N more" to expand
+
+### Cleanup
+- **Duplicate detection** — duplicate tabs are highlighted with an amber left stripe and `(Nx)` pill badge in both domain and tab group views
+- **One-click duplicate removal** — "Close N duplicates" button on any card that has them
+- **Close with style** — swoosh sound + confetti burst on close
+- **Save for later** — bookmark tabs to a checklist before closing them
+
+### Dashboard
+- **Personalized greeting** — shows your first name when you're signed into Chrome
+- **Live tab counts** — badge and close-all button update in real time as you close tabs, no full reload
+- **Jump to any tab** — click any tab title to focus it across windows
+
+### Privacy
+- **100% local** — your data never leaves your machine
+- **Pure Chrome extension** — no server, no Node.js, no npm
 
 ---
 
-## Manual Setup
+## Setup
 
 **1. Clone the repo**
 
 ```bash
-git clone https://github.com/zarazhangrui/tab-out.git
+git clone https://github.com/vivekjain17/manage-tabs.git
 ```
 
-**2. Load the Chrome extension**
+**2. Load the extension in Chrome**
 
-1. Open Chrome and go to `chrome://extensions`
+1. Go to `chrome://extensions`
 2. Enable **Developer mode** (top-right toggle)
 3. Click **Load unpacked**
-4. Navigate to the `extension/` folder inside the cloned repo and select it
+4. Select the `extension/` folder inside the cloned repo
 
 **3. Open a new tab**
 
-You'll see Tab Out.
+Manage Tabs replaces your new tab page.
 
 ---
 
@@ -60,32 +62,36 @@ You'll see Tab Out.
 
 ```
 You open a new tab
-  -> Tab Out shows your open tabs grouped by domain
-  -> Homepages (Gmail, X, etc.) get their own group at the top
-  -> Click any tab title to jump to it
-  -> Close groups you're done with (swoosh + confetti)
-  -> Save tabs for later before closing them
+  → Dashboard shows open tabs grouped by domain or Chrome tab group
+  → Homepages get their own card at the top
+  → Click any tab title to jump to it
+  → Drag groups or individual tabs to reorganize
+  → Close duplicates, groups, or individual tabs
+  → Save tabs to a checklist before closing
 ```
 
-Everything runs inside the Chrome extension. No external server, no API calls, no data sent anywhere. Saved tabs are stored in `chrome.storage.local`.
+Everything runs inside the Chrome extension. Saved tabs are stored in `chrome.storage.local`.
 
 ---
 
 ## Tech stack
 
 | What | How |
-|------|-----|
+|---|---|
 | Extension | Chrome Manifest V3 |
-| Storage | chrome.storage.local |
+| Tab groups | `chrome.tabGroups` API |
+| Identity | `chrome.identity` API |
+| Storage | `chrome.storage.local` |
+| Drag and drop | Pointer Events API |
 | Sound | Web Audio API (synthesized, no files) |
-| Animations | CSS transitions + JS confetti particles |
+| Animations | CSS transitions + JS confetti |
 
 ---
 
 ## License
 
-MIT
+MIT — see [LICENSE](LICENSE)
 
 ---
 
-Built by [Zara](https://x.com/zarazhangrui)
+Built on top of [Tab Out](https://github.com/zarazhangrui/tab-out) by [Zara Zhang](https://x.com/zarazhangrui) (MIT License).
